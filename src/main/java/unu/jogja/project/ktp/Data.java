@@ -10,7 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -37,7 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Data.findByStatus", query = "SELECT d FROM Data d WHERE d.status = :status"),
     @NamedQuery(name = "Data.findByPekerjaan", query = "SELECT d FROM Data d WHERE d.pekerjaan = :pekerjaan"),
     @NamedQuery(name = "Data.findByWarganegara", query = "SELECT d FROM Data d WHERE d.warganegara = :warganegara"),
-    @NamedQuery(name = "Data.findByBerlakuhingga", query = "SELECT d FROM Data d WHERE d.berlakuhingga = :berlakuhingga")})
+    @NamedQuery(name = "Data.findByBerlakuhingga", query = "SELECT d FROM Data d WHERE d.berlakuhingga = :berlakuhingga"),
+    @NamedQuery(name = "Data.findByFoto", query = "SELECT d FROM Data d WHERE d.foto = :foto")})
 public class Data implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -74,9 +74,8 @@ public class Data implements Serializable {
     private String warganegara;
     @Column(name = "berlakuhingga")
     private String berlakuhingga;
-    @Lob
     @Column(name = "foto")
-    private byte[] foto;
+    private String foto;
 
     public Data() {
     }
@@ -185,11 +184,11 @@ public class Data implements Serializable {
         this.berlakuhingga = berlakuhingga;
     }
 
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 

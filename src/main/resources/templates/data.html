@@ -11,10 +11,13 @@
         <title>E-KTP</title>
     </head>
     <body>
+        <div>
+            <a href="/TambahData" class="btn btn-primary">Tambah Data</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">No</th>
+                    <th scope="col">No.</th>
                     <th scope="col">Foto</th>
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
@@ -24,17 +27,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="view,count:${getdata}">
+                <tr th:each="views,count:${getdata}">
                     <th scope="row" th:text="${count.count}"></th>
-                    <td><img th:src="${view.foto}" width="100"></td>
-                    <td th:text="${view.noktp}"></td>
-                    <td th:text="${view.nama}"></td>
-                    <td th:text="${#calendars.format(view.tgllahir,'dd-MMM-yyyy')}"></td>
-                    <td th:text="${view.alamat}"></td>
+                    <td th:text="${views.foto}"></td>
+                    <td th:text="${views.noktp}"></td>
+                    <td th:text="${views.nama}"></td>
+                    <td th:text="${#calendars.format(views.tgllahir,'dd-MMM-yyyy')}"></td>
+                    <td th:text="${views.alamat}"></td>
                     <td>
-                        <a href="/detail">detail</a>
-                        <a href="/edit">edit</a>
-                        <a href="/delete">delete</a>
+                        <a href="/detail" class="btn btn-success">detail</a>
+                        <a href="/edit" class="btn btn-warning">edit</a>
+                        <a href="/delete" class="btn btn-danger">delete</a>
                     </td>
                 </tr>
             </tbody>

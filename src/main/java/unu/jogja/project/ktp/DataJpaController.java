@@ -25,17 +25,15 @@ public class DataJpaController implements Serializable {
     public DataJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    // persistence unit name
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("unu.jogja_project.ktp_jar_0.0.1-SNAPSHOTPU");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("unu.jogja_project.ktp_jar_0.0.1-SNAPSHOTPU");;
+
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    //Construstor 
     public DataJpaController() {
     }
-    
     
 
     public void create(Data data) throws PreexistingEntityException, Exception {
